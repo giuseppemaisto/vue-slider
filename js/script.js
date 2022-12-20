@@ -6,6 +6,7 @@ const {
 createApp({
     data(){
         return{
+            autoplay: null,
             activeImage: 0,
             slide:[
                 {
@@ -33,23 +34,34 @@ createApp({
             ]
         }  
     },
+    created() {
+        
+    },
     methods: {
-        changeImage(index){
+        changeSlide(index){
             this.activeImage=index;
         },
-        nextSlide(){
+        next(){
             this.activeImage++
             if(this.activeImage >this.slide.lengh-1)
             this.activeImage = 0;
         },
-        prevSlide(){
+        prev(){
             this.activeImage--;
-            if(this.activeImage<0){
+            if(this.activeImage == 0){
                 this.activeImage =this.slide.lengh-1
             }
+        },
+        autoScroll(){
+           this.autoplay = setInterval(()=>{
+                this.next();
+            },3000 )
+        },
+        stopAutoScroll(){
+            clearInterval(thiss.autoplay);
+            this.autoplay = null;
         }
-        
     },
    
-}).mount('#app')
+}).mount('#app');
 
