@@ -43,13 +43,13 @@ createApp({
         },
         next(){
             this.activeImage++
-            if(this.activeImage >this.slide.lengh-1)
+            if(this.activeImage >this.slide.length-1)
             this.activeImage = 0;
         },
         prev(){
             this.activeImage--;
             if(this.activeImage == 0){
-                this.activeImage =this.slide.lengh-1
+                this.activeImage =this.slide.length-1
             }
         },
         autoScroll(){
@@ -61,7 +61,7 @@ createApp({
             clearInterval(thiss.autoplay);
             this.autoplay = null;
         }
-    },
+    }
    
 }).mount('#app');
 
